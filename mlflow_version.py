@@ -1,5 +1,5 @@
 '''
-Arquivo de configuração
+Arquivo de configuração para qualquer registro de modelo
 '''
 
 import os
@@ -52,7 +52,6 @@ class Version_model:
      
     def versioning_model(self,):
         # Set a remote URI to upload the data
-        print('ok')
         mlflow.set_tracking_uri(uri=self.remote_tracking_uri)
         
         # Set an experiment name
@@ -70,9 +69,7 @@ class Version_model:
 
             # Set a tag that we can use to remind ourselves what this run was for
             mlflow.set_tags(self.tags)
-            print('ok')
 
             mlflow.pyfunc.log_model(python_model = self.model, 
                         artifact_path = "artifact_model", 
                         registered_model_name = self.model_name)
-            print('ok')
