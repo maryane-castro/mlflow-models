@@ -11,8 +11,8 @@ os.environ["PYTHONNOUSERSITE"] = "true"
 warnings.filterwarnings("ignore", category=UserWarning, module="_distutils_hack")
 
 
-model = nlp.model_Price("models/ofertas.pt") # modelo para registro
-params = {"image": "img"}
+model = pdi.model_Offer("models/pdi/snips/snip_v1.pt") # modelo para registro
+params = {"image_path": "image"}
 
 
 ver = mlflow_version.Version_model(
@@ -25,10 +25,10 @@ ver = mlflow_version.Version_model(
     model_params=params,
     model_metrics={"accuracy": 1.0},
     tags={"Dataset": "PDI"},
-    model_name="Model_Offer",
-    experiment_name= "Teste",
-    description="",
-    run_name="Offer_Run",
+    model_name="Model_Snip",
+    experiment_name= "PDI",
+    description="modelo v1 de recortes",
+    run_name="Snip_Run",
     model=model
 )
 
